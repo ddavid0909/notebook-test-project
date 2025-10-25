@@ -1,6 +1,11 @@
 package org.jetbrains.kotlinx.tictactoe
 
+import org.jetbrains.kotlinx.tictactoe.player.HumanPlayer
+
 fun main() {
-    TODO("Start the TicTacToe game. Implementation should be in `lib`")
+    val player1 = HumanPlayer("X", "Player 1")
+    val player2 = HumanPlayer("O", "Player 2")
+
+
 
 }
