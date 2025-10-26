@@ -4,9 +4,9 @@ object GameStatusCheck {
     val winConditions = mutableListOf<WinCondition>()
     val endConditions = mutableListOf<EndCondition>()
 
-    fun check(x:Int, y:Int): String {
+    fun check(): String {
         for (condition in winConditions) {
-            if (condition.check(x,y)) {
+            if (condition.check()) {
                 return "WIN"
             }
         }

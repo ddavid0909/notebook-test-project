@@ -3,12 +3,11 @@ import org.jetbrains.kotlinx.tictactoe.player.Player
 
 object Board {
     val spots = Array(3) { Array(3) { Spot() } }
-    fun occupy(player: Player, x: Int, y: Int) {
+    fun occupy(player: Player, position: Position) {
+        val (x, y) = position
         try {
             spots[x][y].occupy(player)
         } catch (e: Exception) {
-            println("Invalid move: $x, $y")
-            println(e.message)
             throw e
         }
     }

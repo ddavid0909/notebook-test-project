@@ -1,14 +1,13 @@
 package org.jetbrains.kotlinx.tictactoe
 
 import org.jetbrains.kotlinx.tictactoe.exceptions.SpotOccupiedException
-import org.jetbrains.kotlinx.tictactoe.player.HumanPlayer
 import org.jetbrains.kotlinx.tictactoe.player.Player
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class BoardTest {
-    val player: Player = HumanPlayer("X", "Player 1")
+    val player: Player = Player("X", "Player 1")
 
     @BeforeEach
     fun setUp() {
@@ -18,17 +17,17 @@ class BoardTest {
     @Test
     fun occupyEmptySpot() {
         val board = Board
-        board.occupy(player, 0, 0)
-        assertEquals(player, board.spots[0][0].getPlayer())
+        board.occupy(player, Position(0, 0))
+        assertEquals(player, board.spots[0][0].player)
     }
 
     @Test
     fun occupyOccupiedSpot() {
         val board = Board
-        board.occupy(player, 0, 0)
+        board.occupy(player, Position(0, 0))
         assertThrows(
             SpotOccupiedException::class.java,
-            { board.occupy(player, 0, 0) },
+            { board.occupy(player, Position(0, 0)) },
             "Should throw SpotOccupiedException when occupying occupied spot"
         )
     }
@@ -38,7 +37,7 @@ class BoardTest {
         val board = Board
         assertThrows(
             IndexOutOfBoundsException::class.java,
-            { board.occupy(player, -1, -1) },
+            { board.occupy(player, Position(-1, -1)) },
             "Should throw IndexOutOfBoundsException when occupying invalid spot"
         )
     }

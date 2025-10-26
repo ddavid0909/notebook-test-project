@@ -1,14 +1,13 @@
 package org.jetbrains.kotlinx.tictactoe.status
 
 import org.jetbrains.kotlinx.tictactoe.Board
-import org.jetbrains.kotlinx.tictactoe.player.ComputerPlayer
 import org.jetbrains.kotlinx.tictactoe.player.Player
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class BoardFullEndConditionTest {
-    val player: Player = ComputerPlayer("X")
+    val player: Player = Player("X", "Player 1")
     @BeforeEach
     fun setUp() {
         Board.reset()
