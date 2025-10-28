@@ -2,11 +2,12 @@ package org.jetbrains.kotlinx.tictactoe
 
 import org.jetbrains.kotlinx.tictactoe.exceptions.SpotOccupiedException
 import org.jetbrains.kotlinx.tictactoe.player.Player
+import org.jetbrains.kotlinx.tictactoe.player.StandardPlayer
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 
 class SpotTest {
-    val player: Player = Player("X", "Player 1")
+    val player: Player = StandardPlayer("X", "Player 1")
 
     @Test
     fun isFree() {

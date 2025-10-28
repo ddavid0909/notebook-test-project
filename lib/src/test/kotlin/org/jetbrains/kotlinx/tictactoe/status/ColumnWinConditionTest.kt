@@ -3,12 +3,13 @@ package org.jetbrains.kotlinx.tictactoe.status
 import org.jetbrains.kotlinx.tictactoe.Board
 import org.jetbrains.kotlinx.tictactoe.Position
 import org.jetbrains.kotlinx.tictactoe.player.Player
+import org.jetbrains.kotlinx.tictactoe.player.StandardPlayer
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class ColumnWinConditionTest {
-    val player: Player = Player("X", "Player 1")
+    val player: Player = StandardPlayer("X", "Player 1")
 
     @BeforeEach
     fun setUp() {

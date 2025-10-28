@@ -33,12 +33,12 @@ abstract class Game(outputProviderFactory: OutputProviderFactory) {
             }
             index = (index + 1) % players.size
         }
-        boardOutputProvider.output()
         if(GameStatusCheck.check() == "WIN") {
             messageOutputProvider.output("The winner is ${currentPlayer.side}: ${currentPlayer.name}!")
         } else {
             messageOutputProvider.output("The game ended in a draw!")
         }
+        boardOutputProvider.output()
     }
 
     abstract fun configurePlayers(): List<Player>;

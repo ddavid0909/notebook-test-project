@@ -1,14 +1,14 @@
 package org.jetbrains.kotlinx.tictactoe.player
 
 import org.jetbrains.kotlinx.tictactoe.Board
-import org.jetbrains.kotlinx.tictactoe.inputProvider.InputProvider
-import org.jetbrains.kotlinx.tictactoe.inputProvider.SmartInputProvider
-import game.cli.inputProvider.StandardInputProvider
+import org.jetbrains.kotlinx.tictactoe.Position
 
-class Player(val side:String, val name: String, val inputProvider: InputProvider = StandardInputProvider()) {
+abstract class Player(val side:String, val name: String) {
     fun makeMove(){
-        val position = inputProvider.getInput()
+        val position = this.getInput()
         Board.occupy(this, position)
-    };
+    }
+
+    abstract fun getInput(): Position
 
 }
