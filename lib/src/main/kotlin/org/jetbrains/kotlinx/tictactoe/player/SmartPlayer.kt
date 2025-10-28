@@ -3,9 +3,18 @@ package org.jetbrains.kotlinx.tictactoe.player
 import org.jetbrains.kotlinx.tictactoe.Board
 import org.jetbrains.kotlinx.tictactoe.Position
 
+
 /**
- * SmartPlayer chooses moves using Minimax + alpha-beta on an immutable BoardState copy.
- * Assumes sides are the strings "X" and "O".
+ * Represents a smart AI-based player for a game. The `SmartPlayer` uses the Minimax
+ * algorithm with alpha-beta pruning to determine the optimal move based on the current
+ * game state. This player evaluates all potential moves and chooses the best one, ensuring
+ * optimal gameplay.
+ *
+ * @constructor Creates a SmartPlayer with the specified side and name.
+ * @param side The side the player is controlling in the game (e.g., "X" or "O").
+ * @param name The name of the player.
+ * I have used an LLM to implement the Smart Player, but designed the system so that it is straightforward to add a player using
+ *  a template method myself.
  */
 class SmartPlayer(side: String, name: String) : Player(side, name) {
 
@@ -49,7 +58,6 @@ class SmartPlayer(side: String, name: String) : Player(side, name) {
         val isMaximizing = (state.currentSide == maximizingSide)
 
         for (pos in free) {
-            // Apply move on a copied state
             val nextState = state.play(pos, state.currentSide)
 
             val (_, score) = minimax(nextState, depth + 1, a, b, maximizingSide)
